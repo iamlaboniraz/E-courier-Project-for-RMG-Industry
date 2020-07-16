@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+{% load static%}
+{% block content %}
+<style>
+    body{
+        color: white;
+        background: black;
+
+	}
+
+</style>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>history</title>
+
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Main CSS-->
+    <link href="{% static 'css/main.css'%}" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-dark p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+                <div class="card-heading">
+                    <h2 class="title">History</h2>
+                </div>
+
+                <div class="card-body">
+
+
+                 <table id="datatable2" class="table order-column hover">
+                                       <thead>
+                                          <tr>
+                                             <th>ID</th>
+                                             <th>User ID</th>
+                                              <th>From</th>
+                                               <th>Destination</th>
+                                              <th>product_type</th>
+                                               <th>Date</th>
+                                                 <th>Bill</th>
+                                                 <th>Status</th>
+
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                     {% for order in orders %}
+                                     {% if order.client.user == request.user %}
+        <tr class="gradeX">
+            <td>{{ order.id }}</td>
+             <td>{{ user.id }}</td>
+         <td>{{order.order.from_location}}</td>
+         <td>{{ order.order.to_location }}</td>
+         <td>{{ order.order.product_type }}</td>
+         <td>{{ order.order.Date }}</td>
+<!--         <td>{{ order.order.Bill }}</td>-->
+         <td>{{ order.industry.price }}</td>
+
+          {% if order.order.order_status == '0' %}
+                <td><span class="badge" style="background: #0aa89e"> {{ order.order.order_status }}</span></td>
+                {% else %}
+              <td><span class="badge" style="background: #ff9800"> {{ order.order.order_status }}</span></td>
+             {% endif %}
+            <td>
+               {% endif %}
+{% endfor %}
+
+                  </tbody>
+
+               </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Jquery JS-->
+    <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+
+
+    <!-- Main JS-->
+    <script src="{% static 'js/global.js'%}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
+
+
+
+ <!--   end of slider area-->
+
+    <!--   start copyright text area-->
+    <div class="copyright-area">
+        <div class="container">
+            <div class="col-xs-12 col-sm-6 col-md-6 text-left">
+                <div class="footer-text">
+
+                </div>
+            </div>
+            <div class="col-xs-12  col-sm-6 col-md-6 text-right">
+                <div class="footer-text">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-google-plus"></a>
+                    <a href="#" class="fa fa-dribbble"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    end of copyright text area-->
+
+
+{% endblock %}
+
+
+
+
+
