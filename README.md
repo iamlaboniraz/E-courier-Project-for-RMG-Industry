@@ -1,7 +1,7 @@
 ## Project Related Information
 This is a e-courier project for RMG industry with traceability concept by using Django
 ### Features Summary
-##User Requirements
+## User Requirements
 1. Super Admin can add Factory information.
 2. Admin can update client/driver information.
 3. Admin can delete individual client/driver information.
@@ -36,7 +36,7 @@ This is a e-courier project for RMG industry with traceability concept by using 
 31. Driver can share location with client.
 
 
-##System Requirements
+## System Requirements
 1. Super Admin can add Factory information:
 • First of all, admin will login into the system.
 • Check whether it is admin or not.
